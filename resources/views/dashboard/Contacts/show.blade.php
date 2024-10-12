@@ -2,10 +2,12 @@
 @section('main_section')
     @include('dashboard.includes.alerts')
 
-    <div class="card p-5">
-        <h2>Contacts</h2>
-
-        <table class="table table-hover">
+    <div class="card">
+        <div class="card-header text-center bg-primary text-white">
+            <h4>Contacts Details</h4>
+        </div>
+    <div class="card-body">
+        <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>ID</th>

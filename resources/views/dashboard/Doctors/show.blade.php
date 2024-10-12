@@ -6,10 +6,10 @@
             <h4>Doctor Details</h4>
         </div>
     <div class="card-body">
-        <table class="table table-hover">
+        <table class="table table-bordered">
             <tr>
-                <th>Name</th>
                 <th>ID</th>
+                <th>Name</th>
                 <th>Email</th>
                 <th class="text-center">Picture</th>
                 <th >Timing</th>

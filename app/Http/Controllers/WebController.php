@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use App\Models\AppointmentmangModel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -24,7 +25,11 @@ class WebController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->route('website'); // Redirect to intended route or dashboard
+            if (Auth::user()->usertype == 'admin') {
+                return redirect()->route('dashboard');
+            } else {
+                return redirect()->route('website');
+            }
         }
 
         return $this->sendFailedLoginResponse($request);
@@ -49,16 +54,20 @@ class WebController extends Controller
     public function profile()
     {
         $user = Auth::user();
-    
+        $appointments = AppointmentmangModel::where('email',$user->email)->get(); // This should return a collection
+
         // Check if the user exists
         if (!$user) {
             return redirect()->route('login')->with('error', 'User not found.');
         }
-    
-        return view('dashboard.Auth.profile', compact('user'));
+        return view('dashboard.Auth.profile', compact('user', 'appointments'));
     }
-    
-    
+// public function appointments(){
+
+//     $appointments = AppointmentmangModel::find();
+//     return view('dashboard.Auth.profile', compact('appointments'));
+
+// }
     public function loginForm()
     {
         return view('dashboard.Auth.login');
@@ -109,18 +118,20 @@ class WebController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users,email,' . $id,
             'address' => 'required',
+            'usertype' => 'required', // Assuming 'role' is used instead of 'usertype'
             'contact' => 'required|numeric',
             'picture' => 'nullable|image|mimes:jpg,jpeg,png|max:2048' // Make picture nullable
         ]);
     
         $user = User::findOrFail($id);
         $user->name = $request->name;
+        $user->usertype = $request->usertype; // Update to 'role'
         $user->email = $request->email;
         $user->address = $request->address;
         $user->contact = $request->contact;
     
+        // Handle the profile picture upload
         if ($request->hasFile('picture')) {
-            // Handle the picture upload
             $file = $request->file('picture');
             $filename = time() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('Profiles/pictures'), $filename);
@@ -128,9 +139,11 @@ class WebController extends Controller
         }
     
         $user->save();
-        return redirect()->route('user.show');
+    
+        return redirect()->route('user.show'); // Adjust route as needed
     }
     
+
     public function destroy(string $id)
     {
         User::destroy($id);

@@ -3,11 +3,12 @@
     @include('dashboard.includes.alerts')
 
 
-    <div class="card p-5">
-        <h2>Departments</h2>
-
-        <table class="table table-hover">
-            <thead>
+    <div class="card">
+        <div class="card-header text-center bg-primary text-white">
+            <h4>Department Details</h4>
+        </div>
+    <div class="card-body">
+        <table class="table table-bordered">
                 <tr>
                     <th>ID</th>
                     <th>Department Name</th>

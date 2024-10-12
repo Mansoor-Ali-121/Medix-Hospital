@@ -1,10 +1,3 @@
-<!doctype html>
-<html class="no-js" lang="zxx">
-
-<!-- Mirrored from themewagon.github.io/medicalcenter/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 29 Aug 2024 13:39:58 GMT -->
-<!-- Added by HTTrack -->
-<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -28,12 +21,8 @@
     <link rel="stylesheet" href="{{ asset('website/assets/css/slick.css') }}">
     <link rel="stylesheet" href="{{ asset('website/assets/css/nice-select.css') }}">
     <link rel="stylesheet" href="{{ asset('website/assets/css/style.css') }}">
-
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
-
-
 </head>
+
 
 <body>
     <!-- ? Preloader Start -->
@@ -67,7 +56,7 @@
                                     <nav>
                                         <ul id="navigation">
                                             <li><a href="/">Home</a></li>
-                                            <li><a href="about.html">About</a></li>
+                                           
                                             <li><a href="{{ asset('doctor/list') }}">Doctors</a></li>
                                             <li><a href="{{ route('department.display') }}">Department</a></li>
                                             <li><a href="{{ route('contact.add') }}">Contact</a></li>
@@ -81,7 +70,7 @@
                                     </nav>
                                 </div>
                                 <div class="header-right-btn f-right d-none d-lg-block ml-30">
-                                    <a href="#" class="btn header-btn">Appointment</a>
+                                    <a href="{{ route('appointment.add') }}" class="btn header-btn">Appointment</a>
                                 </div>
                             </div>
                         </div>

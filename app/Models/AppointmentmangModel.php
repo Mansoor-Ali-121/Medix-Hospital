@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class AppointmentmangModel extends Model
 {
     use HasFactory;
+    protected $table = 'appointments'; // Specify the correct table name
     protected $fillable = [
         'name',
         'email',
