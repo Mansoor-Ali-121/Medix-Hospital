@@ -30,10 +30,10 @@ class WebController extends Controller
             } else {
                 return redirect()->route('website');
             }
+        } else {
+            return  redirect()->back()->with('Please , Create a account first!'); // This will help see if the credentials are not matching.
         }
-
-        return $this->sendFailedLoginResponse($request);
-
+        
     }
 
     protected function sendFailedLoginResponse(Request $request)

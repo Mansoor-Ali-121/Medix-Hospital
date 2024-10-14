@@ -36,11 +36,11 @@ class Controller extends WebController
     public function dashboard()
     {
         // Fetch today's appointments
-        $appointments = AppointmentmangModel::with('doctor')
-            ->whereDate('date', now()->format('Y-m-d'))
-            ->get();
-    
-        return view('maindashboard', compact('appointments'));
+        // $appointments = AppointmentmangModel::with('doctor')
+        //     ->whereDate('date', now()->format('Y-m-d'))
+        //     ->get();
+        // , compact('appointments'));
+        return view('maindashboard');
     }
     
     public function dashappointment(){

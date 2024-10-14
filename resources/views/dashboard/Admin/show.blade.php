@@ -38,10 +38,7 @@
                         <td class="p-3">{{ $admin->email }}</td>
                         <td class="p-3">{{ $admin->usertype }}</td>
                         <td class="text-center">
-                            <div class="btn-group" role="group">
-                                <a href="" class="btn btn-sm btn-primary" title="Edit">
-                                    <i class="fas fa-edit"></i> Edit
-                                </a>
+                            <div class="btn">
                                 <form action="" method="POST" style="display: inline;">
                                     @csrf
                                     @method('DELETE')

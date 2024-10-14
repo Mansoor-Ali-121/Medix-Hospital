@@ -57,33 +57,8 @@ Route::middleware(AdminMiddleware::class)->group(function () {
     Route::get('/appointment/list/', [AppointmentController::class, 'display'])->name('appointment.display');
 });
 
-
-
-// Add a profile to the current user
-Route::get('/profile', [WebController::class, 'profile'])->name('user.profile');
-// routes/web.php
-
-
-//
-Route::get('/user/register', [WebController::class, 'index'])->name('user.register');
-Route::post('/user/register', [WebController::class, 'store']);
-// Login user
-Route::get('/login', [WebController::class, 'loginForm'])->name('login.form');
-//
-
-// Doctor show
-
-Route::get('/doctor/list/', [DoctorController::class, 'display'])->name('doctor.display');
-
-// deapartment show
-
-Route::get('/department', [DepartmentController::class, 'display'])->name('department.display');
-
-
-
+// Auth middleware
 Route::group(['middleware' => ['auth']], function () {
-
-    Route::post('/login', [WebController::class, 'login'])->name('login');
     Route::post('/logout', [WebController::class, 'logout'])->name('logout');
     // Contact Form
     Route::get('/contact/add', [ContactController::class, 'index'])->name('contact.add'); // DIsplay in wesite
@@ -94,3 +69,30 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/appointment/add', [AppointmentController::class, 'index'])->name('appointment.add');
     Route::post('/appointment/add', [AppointmentController::class, 'store']);
 });
+
+
+
+// Add a profile to the current user
+Route::get('/profile', [WebController::class, 'profile'])->name('user.profile');
+// routes/web.php
+
+
+
+
+// Register user
+
+Route::get('/user/register', [WebController::class, 'index'])->name('user.register');
+Route::post('/user/register', [WebController::class, 'store']);
+
+// Login user
+
+Route::get('/login', [WebController::class, 'loginForm'])->name('login.form');
+Route::post('/login', [WebController::class, 'login'])->name('login');
+
+// Doctor show
+
+Route::get('/doctor/list/', [DoctorController::class, 'display'])->name('doctor.display');
+
+// deapartment show
+
+Route::get('/department', [DepartmentController::class, 'display'])->name('department.display');
