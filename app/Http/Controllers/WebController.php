@@ -33,6 +33,7 @@ class WebController extends Controller
         }
 
         return $this->sendFailedLoginResponse($request);
+
     }
 
     protected function sendFailedLoginResponse(Request $request)
@@ -62,12 +63,12 @@ class WebController extends Controller
         }
         return view('dashboard.Auth.profile', compact('user', 'appointments'));
     }
-// public function appointments(){
+public function appointments(){
 
-//     $appointments = AppointmentmangModel::find();
-//     return view('dashboard.Auth.profile', compact('appointments'));
+    $appointments = AppointmentmangModel::find();
+    return view('dashboard.Auth.profile', compact('appointments'));
 
-// }
+}
     public function loginForm()
     {
         return view('dashboard.Auth.login');

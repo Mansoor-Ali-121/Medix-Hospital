@@ -5,56 +5,25 @@
 
     <div class="navbar-collapse collapse">
         <ul class="navbar-nav navbar-align">
+            {{-- Admin Panel --}}
             <li class="nav-item dropdown">
-                <a class="nav-icon dropdown-toggle" href="#" id="alertsDropdown" data-bs-toggle="dropdown">
-                    <div class="position-relative">
-                        <i class="align-middle" data-feather="bell"></i>
-                        <span class="indicator">4</span>
-                    </div>
-                </a>
-                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0" aria-labelledby="alertsDropdown">
-                    <div class="dropdown-menu-header">
-                        4 New Notifications
-                    </div>
-
-
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-icon dropdown-toggle" href="#" id="messagesDropdown" data-bs-toggle="dropdown">
-                    <div class="position-relative">
-                        <i class="align-middle" data-feather="message-square"></i>
-                    </div>
-                </a>
-                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0" aria-labelledby="messagesDropdown">
-                    <div class="dropdown-menu-header">
-                        <div class="position-relative">
-                            4 New Messages
-                        </div>
-                    </div>
-
-
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-bs-toggle="dropdown">
-                    <i class="align-middle" data-feather="settings"></i>
+                <a class="nav-link dropdown d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
+                    <img src="{{ asset('Profiles/pictures/' . Auth::user()->picture) }}"
+                        class="avatar img-fluid rounded-circle me-1" alt="{{ Auth::user()->name }}" />
+                    <span class="text-dark">{{ Auth::user()->name }}</span>
                 </a>
 
-                <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-                    <img src="{{ asset('dashboard/assets/img/avatars/avatar.jpg') }}"
-                        class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">Charles
-                        Hall</span>
-                </a>
                 <div class="dropdown-menu dropdown-menu-end">
-                    <a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1"
-                            data-feather="user"></i> Profile</a>
-                    <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="pie-chart"></i>
-                        Analytics</a>
+                    <a class="dropdown-item" href="{{ route('dashboard') }}">
+                        <i class="align-middle me-1" data-feather="user"></i> Profile
+                    </a>
                     <div class="dropdown-divider"></div>
-
-                    <a class="dropdown-item" href="../logout.php">Log out</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}">Log out</a>
                 </div>
             </li>
         </ul>
     </div>
 </nav>
+
+<!-- Bootstrap 5 Bundle with Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

@@ -56,7 +56,7 @@
                                     <nav>
                                         <ul id="navigation">
                                             <li><a href="/">Home</a></li>
-                                           
+
                                             <li><a href="{{ asset('doctor/list') }}">Doctors</a></li>
                                             <li><a href="{{ route('department.display') }}">Department</a></li>
                                             <li><a href="{{ route('contact.add') }}">Contact</a></li>
@@ -64,7 +64,6 @@
                                                 <li><a href="{{ route('user.profile') }}">Profile</a></li>
                                             @else
                                                 <li><a href="{{ route('user.register') }}">Sign Up</a></li>
-
                                             @endauth
                                         </ul>
                                     </nav>
@@ -84,8 +83,6 @@
         </div>
         <!-- Header End -->
     </header>
-
-
 
     @yield('web-content')
 

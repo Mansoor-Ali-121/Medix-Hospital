@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\AppointmentmangModel;
+use App\Models\DoctormangModel;
 
 class AppointmentController extends Controller
 {
@@ -51,6 +52,13 @@ class AppointmentController extends Controller
         return view('dashboard.Appointment.show', compact('appointments'));
     }
 
+
+    public function doctor()
+    {
+        return $this->belongsTo(DoctormangModel::class, 'doctor'); // 'doctor' should be the column name in appointments
+    }
+    
+    
     /**
      * Show the form for editing the specified resource.
      */

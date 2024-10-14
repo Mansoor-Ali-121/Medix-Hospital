@@ -15,6 +15,9 @@
 
     <title>Medix</title>
 
+
+
+
     <link href=" {{ asset('dashboard/assets/css/app.css') }}" rel="stylesheet">
     <link href=" {{ asset('dashboard/assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">

@@ -13,9 +13,14 @@ class AppointmentmangModel extends Model
         'name',
         'email',
         'contact',
-        'doctor',
+        'doctor', // This should be the foreign key that references the doctors table
         'date',
         'time',
         'message'
     ];
+
+    public function doctor()
+    {
+        return $this->belongsTo(DoctormangModel::class, 'doctor'); // 'doctor' is the foreign key in the appointments table
+    }
 }
