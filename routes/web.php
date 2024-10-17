@@ -8,7 +8,7 @@ use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\AppointmentController;
-
+use App\Http\Controllers\PatientControlller;
 
 Route::get('/', [Controller::class, 'index'])->name('website');
 
@@ -55,27 +55,47 @@ Route::middleware(AdminMiddleware::class)->group(function () {
     Route::patch('appointment/update/{id}', [AppointmentController::class, 'update'])->name('appointment.update');
     Route::delete('/appointment/delete/{id}', [AppointmentController::class, 'destroy'])->name('appointment.delete');
     Route::get('/appointment/list/', [AppointmentController::class, 'display'])->name('appointment.display');
+
+
+    // Patient CRUD
+
+    Route::get('/patient/show', [PatientControlller::class, 'show'])->name('patient.show');
+    Route::get('/patient/edit/{id}', [PatientControlller::class, 'edit'])->name('patient.edit');
+    Route::patch('/patient/update/{id}', [PatientControlller::class, 'update'])->name('patient.update');
+    Route::delete('/patient/delete/{id}', [PatientControlller::class, 'destroy'])->name('patient.delete');
+
 });
 
 // Auth middleware
 Route::group(['middleware' => ['auth']], function () {
-    Route::post('/logout', [WebController::class, 'logout'])->name('logout');
+    Route::get('/logout', [WebController::class, 'logout'])->name('logout');
     // Contact Form
-    Route::get('/contact/add', [ContactController::class, 'index'])->name('contact.add'); // DIsplay in wesite
     Route::post('/contact/add', [ContactController::class, 'store']);
-
-
+    
+    
     // Appointment CRUD
-    Route::get('/appointment/add', [AppointmentController::class, 'index'])->name('appointment.add');
     Route::post('/appointment/add', [AppointmentController::class, 'store']);
+    
+    // Add a profile to the current user
+    
+    Route::get('/profile', [WebController::class, 'profile'])->name('user.profile');
+
+    
+// Patient CRUD
+Route::get('/patient/add', [PatientControlller::class, 'index'])->name('patient.add');
+Route::post('/patient/add', [PatientControlller::class, 'store']);
+
+// Regigtrar profile
+Route::get('/registrar/profile', [PatientControlller::class, 'profile'])->name('registrar.profile');    
+
 });
 
 
-
-// Add a profile to the current user
-Route::get('/profile', [WebController::class, 'profile'])->name('user.profile');
-// routes/web.php
-
+// Website view  
+// Contact
+Route::get('/contact/add', [ContactController::class, 'index'])->name('contact.add'); // DIsplay in wesite
+// Appointment
+Route::get('/appointment/add', [AppointmentController::class, 'index'])->name('appointment.add');
 
 
 
@@ -89,10 +109,13 @@ Route::post('/user/register', [WebController::class, 'store']);
 Route::get('/login', [WebController::class, 'loginForm'])->name('login.form');
 Route::post('/login', [WebController::class, 'login'])->name('login');
 
-// Doctor show
+// Doctor show on website
 
 Route::get('/doctor/list/', [DoctorController::class, 'display'])->name('doctor.display');
 
-// deapartment show
+
+
+
+// deapartment show on website
 
 Route::get('/department', [DepartmentController::class, 'display'])->name('department.display');

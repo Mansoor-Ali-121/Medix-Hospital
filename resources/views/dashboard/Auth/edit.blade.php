@@ -34,6 +34,7 @@
             <label class="form-label">Role</label>
             <select name="usertype" class="form-control" required>
                 <option value="user" {{ old('usertype', $user->usertype) == 'user' ? 'selected' : '' }}>User</option>
+                <option value="user" {{ old('usertype', $user->usertype) == 'registrar' ? 'selected' : '' }}>Registrar</option>
                 <option value="admin" {{ old('usertype', $user->usertype) == 'admin' ? 'selected' : '' }}>Admin</option>
             </select>
         </div>

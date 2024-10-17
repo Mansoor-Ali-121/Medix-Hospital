@@ -22,19 +22,21 @@ class WebController extends Controller
             'email' => 'required|email',
             'password' => 'required|min:8',
         ]);
-
+    
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             if (Auth::user()->usertype == 'admin') {
                 return redirect()->route('dashboard');
+            } elseif (Auth::user()->usertype == 'registrar') {
+                return redirect()->route('patient.add');
             } else {
                 return redirect()->route('website');
             }
         } else {
-            return  redirect()->back()->with('Please , Create a account first!'); // This will help see if the credentials are not matching.
+            return redirect()->back()->with('failure', 'Invalid credentials, please try again or create an account!'); // Improved error message
         }
-        
     }
+    
 
     protected function sendFailedLoginResponse(Request $request)
     {

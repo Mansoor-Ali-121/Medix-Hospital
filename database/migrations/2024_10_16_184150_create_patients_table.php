@@ -11,16 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('appointments', function (Blueprint $table) {
+        Schema::create('patients', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email');
             $table->string('contact');
-            $table->string('doctor');
-            $table->date('date');
-            $table->time('time');
-            $table->string('message');
-            $table->boolean('is_confirmed')->default(false); // Add the is_confirmed column
+            $table->string('age');
+            $table->string('address');
+            $table->string('gender');
+            $table->string('disease');
+            $table->string('symptoms');
+
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('appointments');
+        Schema::dropIfExists('patients');
     }
 };

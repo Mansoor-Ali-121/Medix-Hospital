@@ -9,7 +9,9 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
                     <img src="{{ asset('Profiles/pictures/' . Auth::user()->picture) }}"
-                        class="avatar img-fluid rounded-circle me-1" alt="{{ Auth::user()->name }}" />
+                        class="avatar img-fluid rounded-circle me-2" 
+                        style="width: 80px; height: 90px; object-fit: cover;" 
+                        alt="{{ Auth::user()->name }}" />
                     <span class="text-dark">{{ Auth::user()->name }}</span>
                 </a>
 

@@ -14,7 +14,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
+   <!-- Bootstrap CSS (CDN) -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+   <!-- Bootstrap Icons (CDN) -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
+   {{-- Icon --}}
+   <link rel="shortcut icon" href="{{ asset('website/assets/img/logo/loder.png') }}" />
     <link rel="canonical" href="https://demo-basic.adminkit.io/pages-blank.html" />
 
     <title>Medix</title>

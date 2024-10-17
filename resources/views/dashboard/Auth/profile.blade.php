@@ -31,31 +31,31 @@
                                 </div>
                             </div>
 
-                        <!-- Display Appointments -->
-<div class="mt-4">
-    <h2 class="card-title mb-0 text-light text-center card-header bg-primary text-white">Appointments</h2>
+                            <!-- Display Appointments -->
+                            <div class="mt-4">
+                                <h2 class="card-title mb-0 text-light text-center card-header bg-primary text-white">Appointments</h2>
 
-    @if ($appointments->isEmpty())
-        <p>No appointments found.</p>
-    @else
-        <!-- Display total number of appointments -->
-        <p>Total Appointments: {{ $appointments->count() }}</p>
+                                @if ($appointments->isEmpty())
+                                    <p>No appointments found.</p>
+                                @else
+                                    <!-- Display total number of appointments -->
+                                    <p>Total Appointments: {{ $appointments->count() }}</p>
 
-        <ul class="list-group">
-            @foreach ($appointments as $index => $appointment)
-                <li class="list-group-item">
-                    <!-- Display Appointment Number -->
-                    <strong>Appointment #{{ $index + 1 }}:</strong> <br>
+                                    <ul class="list-group">
+                                        @foreach ($appointments as $index => $appointment)
+                                            <li class="list-group-item">
+                                                <!-- Display Appointment Number -->
+                                                <strong>Appointment #{{ $index + 1 }}:</strong> <br>
 
-                    <!-- Display Appointment Details -->
-                    <strong>Doctor:</strong> {{ $appointment->doctor }} <br>
-                    <strong>Date:</strong> {{ $appointment->date }} <br>
-                    <strong>Time:</strong> {{ $appointment->time }} <br>
-                </li>
-            @endforeach
-        </ul>
-    @endif
-</div>
+                                                <!-- Display Appointment Details -->
+                                                <strong>Doctor:</strong> {{ $appointment->doctor }} <br>
+                                                <strong>Date:</strong> {{ $appointment->date }} <br>
+                                                <strong>Time:</strong> {{ $appointment->time }} <br>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                @endif
+                            </div>
 
                         @else
                             <p class="text-danger">User not found. Please log in again.</p>
@@ -63,13 +63,9 @@
                     </div>
 
                     <div class="card-footer text-right">
-                        <a href="{{ route('logout') }}" class="btn btn-danger"
-                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <a href="{{ route('logout') }}" class="btn btn-danger">
                             Logout
                         </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
                     </div>
                 </div>
             </div>

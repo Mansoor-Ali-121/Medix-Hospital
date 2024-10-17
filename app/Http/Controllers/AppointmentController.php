@@ -72,28 +72,27 @@ class AppointmentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-    {
-        
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email',
-            'contact' => 'required|string|max:15',
-            'doctor' => 'required|string',
-            'date' => 'required|date',
-            'time' => 'required|string',
-            'message' => 'nullable|string|max:500',
-        ]);
-        AppointmentmangModel::find($id)->update($validatedData);
-        return redirect()->route('appointment.show')->with('success', 'Appointment updated successfully!');
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        AppointmentmangModel::destroy($id);
-        return redirect()->route('appointment.show')->with('success', 'Appointment deleted successfully!');
-    }
+     public function update(Request $request, $id)
+     {
+         $appointment = AppointmentmangModel::find($id);
+         if ($appointment) {
+             $appointment->is_confirmed = true; // Set confirmed status
+             $appointment->save();
+         }
+     
+         return redirect()->back()->with('success', 'Appointment confirmed!');
+     }
+     
+     public function destroy( $id)
+     {
+         $appointment = AppointmentmangModel::find($id);
+         if ($appointment) {
+             $appointment->delete();
+         }
+     
+         return redirect()->back()->with('success', 'Appointment deleted!');
+     }
+
+
 }

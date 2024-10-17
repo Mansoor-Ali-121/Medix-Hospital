@@ -18,18 +18,41 @@
                         <th>Doctor</th>
                         <th>Date</th>
                         <th>Time</th>
+                        <th class="text-center">Visit</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($appointments as $appointment)
-                        <tr>
-                            <td>{{ $appointment->id }}</td> <!-- Assuming you want to show the ID here -->
-                            <td>{{ $appointment->name }}</td>
-                            <td>{{ $appointment->email }}</td>
-                            <td>{{ ($appointment->doctor) }}</td> <!-- Use optional to avoid errors -->
-                            <td>{{ $appointment->date }}</td>
-                            <td>{{ $appointment->time }}</td>
-                        </tr>
+                    <tr>
+                        <td>{{ $appointment->id }}</td>
+                        <td>{{ $appointment->name }}</td>
+                        <td>{{ $appointment->email }}</td>
+                        <td>{{ $appointment->doctor }}</td>
+                        <td>{{ $appointment->date }}</td>
+                        <td>{{ $appointment->time }}</td>
+                        <td class="text-center">
+                            @if ($appointment->is_confirmed)
+                                <button class="btn btn-success" disabled>✔</button>
+                            @else
+                                <form method="POST" action="{{ route('appointment.update', $appointment->id) }}">
+                                    @csrf
+                                    @method("PATCH")
+                                    <input type="hidden" name="response" value="yes">
+                                    <button type="submit" class="btn btn-outline-success btn-yes">
+                                        Yes
+                                    </button>
+                                </form>
+                            @endif
+                            <form method="POST" action="{{ route('appointment.delete', $appointment->id) }}">
+                                @csrf
+                                @method("DELETE")
+                                <input type="hidden" name="response" value="no">
+                                <button type="submit" class="btn btn-outline-danger btn-no">
+                                    No
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
                     @endforeach
                 </tbody>
             </table>

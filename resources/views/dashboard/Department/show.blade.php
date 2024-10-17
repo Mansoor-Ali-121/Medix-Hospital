@@ -29,15 +29,17 @@
 
                         <td class="text-center">
                             <div class="btn-group" role="group">
-                                <a href="{{ route('department.edit', $department->id) }}" class="btn btn-sm btn-primary">
-                                    <i class="fas fa-edit"></i> Edit
+                                <a href="{{ route('department.edit', $department->id) }}" class="btn btn-primary me-2">
+                                    <i class="bi bi-pencil"></i> Edit
                                 </a>
-                                <a href="{{ route('department.delete', $department->id) }}"
-                                    class="btn btn-sm btn-danger delete-confirmation" data-id="{{ $department->id }}">
-                                    <i class="fas fa-trash"></i> Delete
+                                <a href="{{ route('department.delete', $department->id) }}" 
+                                   class="btn btn-danger" 
+                                   onclick="return confirm('Are you sure you want to delete this department?');">
+                                    <i class="bi bi-trash"></i> Delete
                                 </a>
                             </div>
                         </td>
+                        
                     </tr>
                 @endforeach
             </tbody>

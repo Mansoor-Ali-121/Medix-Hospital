@@ -6,7 +6,7 @@
             <h4>Doctor Details</h4>
         </div>
     <div class="card-body">
-        <table class="table table-bordered">
+        <table class="table table-bordered table-hover">
             <tr>
                 <th>ID</th>
                 <th>Name</th>
@@ -33,10 +33,16 @@
                     <td>{{ $doctor->qualification }}</td>
                     <td class="text-center">
                         <div class="btn-group">
-                            <a href="{{ route('doctor.edit', $doctor->id) }}" class="btn btn-primary me-2">Edit</a>
-                            <a href="{{ route('doctor.delete', $doctor->id) }}" class="btn btn-danger">Delete</a>
+                            <a href="{{ route('doctor.edit', $doctor->id) }}" class="btn btn-primary me-2">
+                                <i class="bi bi-pencil"></i> Edit
+                            </a>
+                            <a href="{{ route('doctor.delete', $doctor->id) }}" class="btn btn-danger" 
+                               onclick="return confirm('Are you sure you want to delete this doctor?');">
+                                <i class="bi bi-trash"></i> Delete
+                            </a>
                         </div>
                     </td>
+                    
             @endforeach
         </table>
     </div>

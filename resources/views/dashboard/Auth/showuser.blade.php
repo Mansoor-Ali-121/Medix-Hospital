@@ -3,14 +3,15 @@
 
     @include('dashboard.includes.alerts')
 
-    <div class="container">
-        <div class="card col-12">
-            <div class="card-header bg-primary text-white">
-                <h4 class="card-title mb-0">User List</h4>
-            </div>
-            <div class="card-body col-12">
-                <table class="table table-hover table-responsive col-12">
-                    <thead>
+    <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center bg-primary text-white">
+            <h4 class="mb-0">User's Details</h4>
+            <a href="{{ route('dashboard') }}" class="btn btn-outline-light">Back</a> <!-- Back Button -->
+        </div>
+
+        <div class="card-body">
+            <table class="table table-hover table-bordered">
+                <thead class="bg-light">
                         <tr>
                             <th scope="col" class="text-center">ID</th>
                             <th scope="col" class="text-center">Name</th>
@@ -52,5 +53,5 @@
                 </table>
             </div>
         </div>
-    </div>
+
 @endsection
