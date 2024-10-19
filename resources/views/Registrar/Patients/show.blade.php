@@ -4,11 +4,12 @@
 
 @include('dashboard.includes.alerts')
 
-    <div class="container mt-5 mb-5">
-        <div class="card shadow-lg">
-            <div class="card-header bg-primary text-white text-center">
-                <h2>Patient Records</h2>
-            </div>
+
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center bg-primary text-white">
+        <h4 class="mb-0">Patient's Details</h4>
+        <a href="{{ route('dashboard') }}" class="btn btn-outline-light">Back</a> <!-- Back Button -->
+    </div>
             <div class="card-body p-4">
                 @if ($patients->isEmpty())
                     <div class="alert alert-info text-center">No patient records found.</div>
@@ -61,6 +62,5 @@
                     </table>
                 @endif
             </div>
-        </div>
     </div>
 @endsection

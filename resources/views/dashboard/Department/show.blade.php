@@ -3,9 +3,11 @@
     @include('dashboard.includes.alerts')
 
 
+
     <div class="card">
-        <div class="card-header text-center bg-primary text-white">
-            <h4>Department Details</h4>
+        <div class="card-header d-flex justify-content-between align-items-center bg-primary text-white">
+            <h4 class="mb-0">Department's Details</h4>
+            <a href="{{ route('dashboard') }}" class="btn btn-outline-light">Back</a> <!-- Back Button -->
         </div>
     <div class="card-body">
         <table class="table table-bordered">

@@ -21,7 +21,7 @@
                                     </strong>
                                 </h1>
                                 <p data-animation="fadeInLeft" data-delay="0.1s">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi uquip ex ea commodo consequat is aute irure.</p>
-                                <a href="#" class="btn hero-btn" data-animation="fadeInLeft" data-delay="0.5s">Appointment <i class="ti-arrow-right"></i></a>
+                                <a href="{{ route('appointment.add') }}" class="btn hero-btn" data-animation="fadeInLeft" data-delay="0.5s">Appointment <i class="ti-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -45,13 +45,10 @@
                         </div>
                         <p>There are many variations of passages of lorem ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
                         <div class="about-btn1 mb-30">
-                            <a href="about.html" class="btn about-btn">Find Doctors <i class="ti-arrow-right"></i></a>
+                            <a href="{{ route('doctor.display') }}" class="btn about-btn">Find Doctors <i class="ti-arrow-right"></i></a>
                         </div>
                         <div class="about-btn1 mb-30">
-                            <a href="about.html" class="btn about-btn2">Appointment <i class="ti-arrow-right"></i></a>
-                        </div>
-                        <div class="about-btn1 mb-30">
-                            <a href="about.html" class="btn about-btn2">Emergency 1 <i class="ti-arrow-right"></i></a>
+                            <a href="{{ route('appointment.add') }}" class="btn about-btn2">Appointment <i class="ti-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>

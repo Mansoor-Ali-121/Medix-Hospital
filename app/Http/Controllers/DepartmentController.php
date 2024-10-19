@@ -31,7 +31,7 @@ class DepartmentController extends Controller
     {
        $data= $request->validate([
             'name' => 'required|string|max:255', // Validate input
-            'description' => 'required|string|max:255', // Validate input
+            'description' => 'required|string', // Validate input
             'picture' => 'required|image|mimes:jpeg,png,jpg,gif|max:3000',
         ]);
 

@@ -4,7 +4,7 @@
 <div class="card">
     <div class="card-header d-flex justify-content-between align-items-center bg-primary">
         <h4 class="mb-0 text-light">Today's Appointments</h4>
-        <a href="{{ route('dashboard') }}" class="btn btn-outline-light">Back</a> <!-- Back Button -->
+        <a href="{{ route('dashboard') }}" class="btn btn-outline-light">Back</a>
     </div>
 
     <div class="card-body">
@@ -34,7 +34,7 @@
                             @if ($appointment->is_confirmed)
                                 <button class="btn btn-success" disabled>✔</button>
                             @else
-                                <form method="POST" action="{{ route('appointment.update', $appointment->id) }}">
+                                <form method="POST" action="{{ route('appointment.update', $appointment->id) }}" class="confirm-form">
                                     @csrf
                                     @method("PATCH")
                                     <input type="hidden" name="response" value="yes">
@@ -43,7 +43,7 @@
                                     </button>
                                 </form>
                             @endif
-                            <form method="POST" action="{{ route('appointment.delete', $appointment->id) }}">
+                            <form method="POST" action="{{ route('appointment.delete', $appointment->id) }}" class="delete-form">
                                 @csrf
                                 @method("DELETE")
                                 <input type="hidden" name="response" value="no">
@@ -59,4 +59,26 @@
         </div>
     </div>
 </div>
+
+<script>
+    // Add event listener to the Yes buttons
+    document.querySelectorAll('.confirm-form').forEach(form => {
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting immediately
+            if (confirm('Are you sure you want to confirm this appointment?')) {
+                form.submit(); // Submit the form if the user confirms
+            }
+        });
+    });
+
+    // Add event listener to the No buttons
+    document.querySelectorAll('.delete-form').forEach(form => {
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting immediately
+            if (confirm('Are you sure you want to decline this appointment?')) {
+                form.submit(); // Submit the form if the user confirms
+            }
+        });
+    });
+</script>
 @endsection

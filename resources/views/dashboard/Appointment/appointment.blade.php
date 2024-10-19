@@ -14,7 +14,10 @@
                 </div>
             </div>
         </div>
+        
     </div>
+        <!-- Hero End -->
+        @include('dashboard.includes.alerts')
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -24,9 +27,6 @@
             </ul>
         </div>
     @endif
-
-    @include('dashboard.includes.alerts')
-    <!-- Hero End -->
 
     {{-- Form start --}}
 
@@ -55,44 +55,44 @@
                             <div class="row">
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-box user-icon mb-30">
-                                        <input type="text" name="name" placeholder="Name" required>
+                                        <input type="text" name="name" placeholder="Name">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-box email-icon mb-30">
-                                        <input type="text" name="contact" placeholder="Phone" required>
+                                        <input type="text" name="contact" placeholder="Phone">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 mb-30">
                                     <div class="select-itms">
-                                        <select name="doctor" id="select2" required>
-                                            <option value="">Select a Doctor</option>
-                                            <option value="Health Law">Health Law</option>
+                                        <select name="doctor" id="select2">
+                                            <option value="" disabled selected>Select a Doctor</option>
                                             <option value="Saiful Islam">Saiful Islam</option>
                                             <option value="Arafath Miya">Arafath Miya</option>
                                             <option value="Shakil Miya">Shakil Miya</option>
                                             <option value="Tamim Sharker">Tamim Sharker</option>
                                         </select>
+                                        
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-box subject-icon mb-30">
-                                        <input type="email" name="email" placeholder="Email" required>
+                                        <input type="email" name="email" placeholder="Email">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-box date-icon mb-30">
-                                        <input type="date" name="date" placeholder="Date" required>
+                                        <input type="date" name="date" placeholder="Date">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-box time-icon mb-30">
-                                        <input type="time" name="time" placeholder="Time" required>
+                                        <input type="time" name="time" placeholder="Time">
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-box message-icon mb-65">
-                                        <textarea name="message" id="message" placeholder="Message" required></textarea>
+                                        <textarea name="message" id="message" placeholder="Message"></textarea>
                                     </div>
                                     <div class="submit-info">
                                         <button class="btn" type="submit">Submit Now <i class="ti-arrow-right"></i></button>

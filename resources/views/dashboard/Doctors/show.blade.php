@@ -1,10 +1,12 @@
 @extends('template')
 @section('main_section')
 
+
 <div class="card">
-        <div class="card-header text-center bg-primary text-white">
-            <h4>Doctor Details</h4>
-        </div>
+    <div class="card-header d-flex justify-content-between align-items-center bg-primary text-white">
+        <h4 class="mb-0">Doctor's Details</h4>
+        <a href="{{ route('dashboard') }}" class="btn btn-outline-light">Back</a> <!-- Back Button -->
+    </div>
     <div class="card-body">
         <table class="table table-bordered table-hover">
             <tr>
