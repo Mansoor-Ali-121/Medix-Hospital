@@ -10,7 +10,7 @@
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center bg-primary text-white">
             <h4 class="mb-0">Appointments Details</h4>
-            <a href="{{ route('dashboard') }}" class="btn btn-outline-light">Back</a> <!-- Back Button -->
+            <a href="{{ route('dashboard') }}" class="btn btn-outline-light">Back</a>
         </div>
 
         <div class="card-body">
@@ -42,7 +42,7 @@
                             <td class="text-center">
                                 <div class="btn-group" role="group">
                                     <a href="{{ route('appointment.edit', $appointment->id) }}"
-                                        class="btn btn-sm btn-primary">
+                                        class="btn btn-sm btn-primary me-2">
                                         <i class="fas fa-edit"></i> Edit
                                     </a>
                                     <form action="{{ route('appointment.delete', $appointment->id) }}" method="POST"

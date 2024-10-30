@@ -11,9 +11,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     {{-- Icon --}}
     <link rel="shortcut icon" href="{{ asset('website/assets/img/logo/loder.png') }}" />
-
-
-
     <style>
         body {
             background-color: #f8f9fa;
@@ -100,6 +97,7 @@
     </style>
 </head>
 
+
 <body>
     <nav class="navbar navbar-expand custom-navbar">
         <div class="container-fluid">
@@ -141,6 +139,8 @@
         </div>
     </nav>
     
+    @include('dashboard.includes.alerts')
+
 
     <div class="container mt-5 mb-5">
         @if ($errors->any())
